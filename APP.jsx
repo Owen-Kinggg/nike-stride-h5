@@ -3,6 +3,8 @@ import p1Image from "./p1.png";
 import p2Image from "./p2.png";
 import p3Image from "./p3.png";
 import p4Image from "./p4.png";
+import p5Image from "./p5.png";
+import topImage from "./top.png";
 
 const ORANGE = "#ff5a00";
 
@@ -145,6 +147,50 @@ export default function NikeStrideH5() {
             <div className="text-xs font-bold text-white/50">H5 PROTOTYPE</div>
           </div>
 
+          <div className="mb-5 overflow-hidden rounded-[2rem] border border-orange-500/25 bg-[#0a0a0a] shadow-[0_24px_70px_rgba(0,0,0,.45)]">
+            <div className="relative h-56 overflow-hidden">
+              <img src={topImage} alt="NikeStride行远步道项目介绍" className="h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-[#0a0a0a]" />
+              <div className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/55 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-white">NikeStride</div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="text-[11px] font-black uppercase tracking-[0.24em] text-orange-500">Rural Girls Trail System</div>
+                <h1 className="mt-2 text-4xl font-black leading-[0.95] tracking-tight text-white">
+                  行远步道
+                  <span className="block text-orange-500">让旧鞋成为路标</span>
+                </h1>
+              </div>
+            </div>
+
+            <div className="p-5">
+              <p className="text-sm leading-6 text-white/75">
+                NikeStride行远步道是面向农村中小学女孩的定向越野步道系统。借鉴济州偶来步道19年成熟运营经验，结合Nike撒开脚丫与Nike旧鞋新生，将回收旧鞋转化为运动路标，为农村女孩创造低成本、可复制、可持续的运动场景。
+              </p>
+
+              <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-y border-white/10 py-4">
+                <div>
+                  <div className="text-2xl font-black text-orange-500">437km</div>
+                  <div className="mt-1 text-[11px] leading-4 text-white/45">济州偶来步道 / 27条路线 / 年访问60万人次</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-black text-orange-500">16万</div>
+                  <div className="mt-1 text-[11px] leading-4 text-white/45">Nike撒开脚丫累计覆盖女孩</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-black text-orange-500">32万双</div>
+                  <div className="mt-1 text-[11px] leading-4 text-white/45">Nike旧鞋新生累计回收</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-black text-orange-500">24个月</div>
+                  <div className="mt-1 text-[11px] leading-4 text-white/45">项目周期 / 总预算约11万元</div>
+                </div>
+              </div>
+
+              <div className="mt-4 text-xs font-bold leading-5 text-white/55">
+                三校试点构成从资源最优到资源最缺的压力测试：清华大学中枢示范、广西北海涠洲岛西角小学海岛双轨、湖南湘西吉首市民族中学山区极端案例。
+              </div>
+            </div>
+          </div>
+
           <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 shadow-2xl">
             <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-orange-500/30 blur-2xl" />
             <div className="relative">
@@ -156,7 +202,7 @@ export default function NikeStrideH5() {
               <p className="mt-5 max-w-[320px] text-sm leading-6 text-white/70">聚合三校试点产出的女生短视频、旧鞋文创展示和故事地图；每个物理打卡点通过QR码跳转到对应女生短视频，把线下步道和线上内容直接打通。</p>
               <div className="mt-6 grid grid-cols-3 gap-2">
                 <Stat value="3" label="所试点学校" />
-                <Stat value="6+" label="女生短视频" />
+                <Stat value="3" label="女生短视频" />
                 <Stat value="18+" label="故事点位" />
               </div>
             </div>
@@ -240,8 +286,8 @@ export default function NikeStrideH5() {
               <div key={item} className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.06] p-4">
                 <div className="absolute right-[-24px] top-[-24px] h-20 w-20 rounded-full bg-orange-500/20 blur-xl" />
                 <div className={`mb-4 flex h-24 items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-br ${active.gradient} text-4xl font-black text-black`}>
-                  {idx === 0 ? (
-                    <img src={p1Image} alt={item} className="h-full w-full bg-white object-contain" />
+                  {idx === 0 || idx === 1 ? (
+                    <img src={idx === 0 ? p1Image : p5Image} alt={item} className="h-full w-full bg-white object-contain" />
                   ) : (
                     idx + 1
                   )}
