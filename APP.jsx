@@ -1,4 +1,6 @@
 import React, { useMemo, useState } from "react";
+import p1Image from "./p1.png";
+import p2Image from "./p2.png";
 
 const ORANGE = "#ff5a00";
 
@@ -17,7 +19,7 @@ const schools = [
     gradient: "from-orange-500 via-red-500 to-yellow-400",
     bg: "bg-orange-500",
     videos: [
-      { title: "中枢示范｜一条步道如何被设计出来", point: "01 二校门起点", time: "03:58", type: "步道诞生记" },
+      { title: "中枢示范｜一条步道如何被设计出来", point: "01 二校门起点", time: "03:58", type: "步道诞生记", image: p2Image },
       { title: "女生共创｜我们把校园路线变成工具包", point: "04 图书馆", time: "04:21", type: "女生共创记" },
     ],
     crafts: ["清华图案旧鞋徽章", "鞋带方向手环", "荷塘路线明信片", "工具包样板吊牌"],
@@ -209,7 +211,17 @@ export default function NikeStrideH5() {
             {active.videos.map((v, idx) => (
               <div key={v.title} className="group rounded-3xl border border-white/10 bg-white/[0.06] p-4 transition hover:border-orange-500/60">
                 <div className="flex gap-4">
-                  <div className={`flex h-20 w-20 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br ${active.gradient} text-3xl font-black text-black shadow-[0_0_24px_rgba(255,90,0,.25)]`}>▶</div>
+                  <div className={`relative flex h-20 shrink-0 items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-br ${active.gradient} text-3xl font-black text-black shadow-[0_0_24px_rgba(255,90,0,.25)] ${v.image ? "w-28" : "w-20"}`}>
+                    {v.image ? (
+                      <>
+                        <img src={v.image} alt={v.title} className="h-full w-full bg-black object-cover" />
+                        <div className="absolute inset-0 bg-black/10" />
+                        <div className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-base text-black shadow-lg">▶</div>
+                      </>
+                    ) : (
+                      "▶"
+                    )}
+                  </div>
                   <div className="min-w-0 flex-1">
                     <div className="mb-2 inline-flex rounded-full bg-orange-500/15 px-2 py-1 text-[10px] font-black text-orange-500">{v.type}</div>
                     <h3 className="text-base font-black leading-5">{v.title}</h3>
@@ -227,7 +239,13 @@ export default function NikeStrideH5() {
             {active.crafts.map((item, idx) => (
               <div key={item} className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.06] p-4">
                 <div className="absolute right-[-24px] top-[-24px] h-20 w-20 rounded-full bg-orange-500/20 blur-xl" />
-                <div className={`mb-4 flex h-24 items-center justify-center rounded-3xl bg-gradient-to-br ${active.gradient} text-4xl font-black text-black`}>{idx + 1}</div>
+                <div className={`mb-4 flex h-24 items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-br ${active.gradient} text-4xl font-black text-black`}>
+                  {idx === 0 ? (
+                    <img src={p1Image} alt={item} className="h-full w-full bg-white object-contain" />
+                  ) : (
+                    idx + 1
+                  )}
+                </div>
                 <h3 className="text-sm font-black leading-5">{item}</h3>
                 <p className="mt-2 text-[11px] leading-5 text-white/50">旧鞋材料再生，结合本地文化，可用于学生自留、展陈或义卖反哺维护。</p>
               </div>
