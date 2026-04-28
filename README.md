@@ -1,6 +1,6 @@
 # H5 Web Page
 
-这个目录已经整理成一个可以部署的 React H5 网页项目。页面入口是 `APP.jsx`。
+这是一个 Vite + React 静态页面项目，页面入口是根目录的 `APP.jsx`，通过 `src/main.jsx` 挂载到页面中。
 
 ## 本地预览
 
@@ -11,26 +11,34 @@ npm run dev
 
 打开终端显示的本地地址，例如 `http://localhost:5173`。
 
-## 生成可部署文件
+## 构建静态文件
 
 ```bash
 npm run build
 ```
 
-构建结果会生成在 `dist/` 目录。
+构建结果会生成在 `dist/` 目录。项目已经在 `vite.config.js` 中设置了 `base: "./"`，所以构建后的资源路径适合部署到 GitHub Pages。
 
-## 发布成别人能访问的网址
+## 发布到 GitHub Pages
 
-推荐用 Vercel、Netlify 或 Cloudflare Pages：
+本仓库已经包含 `.github/workflows/deploy.yml`。推送到 `main` 分支后，GitHub Actions 会自动构建并发布 `dist/`。
 
-1. 把整个项目上传到 GitHub 仓库。
-2. 在 Vercel / Netlify / Cloudflare Pages 中导入这个仓库。
-3. 构建命令填 `npm run build`。
-4. 输出目录填 `dist`。
-5. 部署完成后平台会给你一个公开网址。
+首次使用时需要在 GitHub 仓库里开启 Pages：
 
-也可以直接把 `npm run build` 生成的 `dist/` 上传到静态网站托管服务。
+1. 打开仓库的 `Settings`。
+2. 进入 `Pages`。
+3. 在 `Build and deployment` 的 `Source` 中选择 `GitHub Actions`。
+4. 推送代码到 `main` 分支。
+5. 等待 `Actions` 里的 `Deploy to GitHub Pages` 工作流完成。
 
-## 生成二维码
+发布完成后，页面地址通常是：
 
-拿到公开网址后，用任意二维码生成工具生成二维码即可。微信、草料二维码、Vercel 分享页或浏览器插件都可以生成。
+```text
+https://<你的 GitHub 用户名>.github.io/<仓库名>/
+```
+
+如果仓库名是 `<你的 GitHub 用户名>.github.io`，页面地址通常是：
+
+```text
+https://<你的 GitHub 用户名>.github.io/
+```
