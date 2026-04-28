@@ -4,6 +4,7 @@ import p2Image from "./p2.png";
 
 const ORANGE = "#ff5a00";
 
+
 const schools = [
   {
     id: "tsinghua",
