@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from "react";
 import p1Image from "./p1.png";
 import p2Image from "./p2.png";
+import p3Image from "./p3.png";
+import p4Image from "./p4.png";
 
 const ORANGE = "#ff5a00";
 
@@ -20,8 +22,7 @@ const schools = [
     gradient: "from-orange-500 via-red-500 to-yellow-400",
     bg: "bg-orange-500",
     videos: [
-      { title: "中枢示范｜一条步道如何被设计出来", point: "01 二校门起点", time: "03:58", type: "步道诞生记", image: p2Image },
-      { title: "女生共创｜我们把校园路线变成工具包", point: "04 图书馆", time: "04:21", type: "女生共创记" },
+      { title: "中枢示范｜一条步道如何被设计出来", point: "01 二校门起点", time: "03:58", type: "步道诞生记", image: p4Image },
     ],
     crafts: ["清华图案旧鞋徽章", "鞋带方向手环", "荷塘路线明信片", "工具包样板吊牌"],
     points: [
@@ -45,8 +46,7 @@ const schools = [
     gradient: "from-orange-500 via-amber-500 to-stone-300",
     bg: "bg-amber-500",
     videos: [
-      { title: "海岛双轨｜我们的步道也给游客讲故事", point: "01 盛塘天主教堂", time: "04:05", type: "地方风物型" },
-      { title: "火山岛旧鞋再生｜黑色岩石和奔跑的女孩", point: "04 火山地质点", time: "03:46", type: "环保公益型" },
+      { title: "海岛双轨｜我们的步道也给游客讲故事", point: "01 盛塘天主教堂", time: "04:05", type: "地方风物型", image: p3Image },
     ],
     crafts: ["火山岩纹步道徽章", "旧鞋底压纹挂件", "海岛双语护照", "五彩滩鞋带吊饰"],
     points: [
@@ -70,8 +70,7 @@ const schools = [
     gradient: "from-orange-600 via-red-600 to-fuchsia-500",
     bg: "bg-red-600",
     videos: [
-      { title: "山区极端案例｜出校门就是未被看见的步道", point: "03 半山腰平台", time: "04:33", type: "人物故事型" },
-      { title: "民族文化展板｜把苗绣纹样放进路线", point: "04 学校后门", time: "03:52", type: "地方文化型" },
+      { title: "山区极端案例｜出校门就是未被看见的步道", point: "03 半山腰平台", time: "04:33", type: "人物故事型", image: p2Image },
     ],
     crafts: ["苗绣纹旧鞋徽章", "山路反光鞋带", "堆肥花园钥匙扣", "民族文化路线卡"],
     points: [
@@ -165,7 +164,7 @@ export default function NikeStrideH5() {
         </section>
 
         <section className="px-5">
-          <SectionTitle kicker="Pressure Test" title="三校压力测试" />
+          <SectionTitle kicker="Pressure Test" title="三校试点案例" />
           <div className="grid grid-cols-3 gap-2">
             {schools.map((s) => (
               <button
